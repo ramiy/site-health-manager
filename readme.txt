@@ -38,15 +38,17 @@ You can also help by translating the plugin to your language via [translate.word
 * MySQL version 5.0 or greater.
 
 = Can I add new test to Site Heath Status? ==
-No, you can't add new test. The plugin allows you to disable existing tests to that are not relevant for your server configuration.
+No, you can't add new test. The plugin allows you to disable existing tests that are not relevant for your server configuration.
 
 = Can I add new data to Site Heath Info? ==
-No, you can't add new data. The plugin only lets you manage and organize sensitive and critical data.
+No, you can't add new data. The plugin only lets you manage and organize existing data added by WordPress core, plugins and themes.
 
 == Screenshots ==
 
-1. Site Health Manager screen.
-1. Site Health Info screen, without the data the user want to disable.
+1. Site Health Manager - status manager screen.
+1. Site Health Manager - info manager screen.
+1. Site Health Status - perfect score based on server configuration.
+1. Site Health Info - debug data without the data the user disable.
 
 == Changelog ==
 
