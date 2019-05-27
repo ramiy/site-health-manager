@@ -3,7 +3,7 @@
 Plugin Name: Site Health Manager
 Plugin URI:  https://wordpress.org/plugins/site-health-manager/
 Description: Site Health Manager allows you to customize critical server data visibility and status tests availability.
-Version:     1.1.0
+Version:     1.1.1
 Author:      Rami Yushuvaev
 Author URI:  https://GenerateWP.com/
 Text Domain: site-health-manager
@@ -135,16 +135,10 @@ class Site_Health_Manager {
 		);
 
 		// Set current tab
-		if ( ! isset( $_GET['tab'] ) ) {
-			$this->current_tab = 'status';
+		if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'info' ) {
+			$this->current_tab = 'info';
 		} else {
-			if ( $_GET['tab'] === 'info' ) {
-				$this->current_tab = 'info';
-			} elseif ( $_GET['tab'] === 'status' ) {
-				$this->current_tab = 'status';
-			} else {
-				$this->current_tab = 'status';
-			}
+			$this->current_tab = 'status';
 		}
 
 		// Disable selected site health information.
@@ -390,7 +384,7 @@ class Site_Health_Manager {
 		}
 
 		// Set variables
-		$admin_url = $this->parent_slug . '?page=' . $this->page_slug;
+		$admin_url = menu_page_url( $this->page_slug, false );
 		$site_health_manager_tabs = [
 			'status' => [
 				'name' => 'status',
@@ -441,7 +435,7 @@ class Site_Health_Manager {
 
 			<h2><?php echo esc_html__( 'Site Health Manager', 'site-health-manager' ); ?></h2>
 
-			<p><?php echo esc_html__( 'Make sure your health score is correct by running only the tests relevant for your server configuration. And take some protective measures to keep your critical server data secure.', 'site-health-manager' ); ?></p>
+			<p><?php echo esc_html__( 'Make sure your Health Score is correct by running only tests the are relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.', 'site-health-manager' ); ?></p>
 
 			<nav class="site-health-manager-nav">
 				<?php foreach ( $site_health_manager_tabs as $tab => $tab_data ) { ?>
@@ -472,8 +466,8 @@ class Site_Health_Manager {
 				// Tests List
 				?>
 				<div class="status-wrapper <?php echo ( $this->current_tab === 'status' ) ? '' : 'hidden'; ?>">
-					<p><?php echo esc_html__( 'Site Health Status screen generates a health score based on tests it runs on the server. But some tests may not be relevant for your server setup. This may cause a low health score, unhappy site owners and complains for web hosts.', 'site-health-manager' ); ?></p>
-					<p><?php echo esc_html__( 'Select the test you want to disable in order to prevent displaying wrong health score in your Site Health Status screen. For example missing PHP extensions for security reasons or disabled background updates to allow version control.', 'site-health-manager' ); ?></p>
+					<p><?php echo esc_html__( 'Site Health Status screen generates a health score based on tests it runs on the server, but some tests may not be relevant to your server setup. This may cause a low health score, unhappy site owners, and complaints for web hosts.', 'site-health-manager' ); ?></p>
+					<p><?php echo esc_html__( 'Select the test you want to disable in order to prevent displaying the wrong health score in your Site Health Status screen. For example, missing PHP extensions for security reasons or disabled background updates to allow version control.', 'site-health-manager' ); ?></p>
 
 					<h3><?php echo esc_html__( 'Tests', 'site-health-manager' ); ?></h3>
 					<?php
@@ -503,7 +497,7 @@ class Site_Health_Manager {
 				?>
 				<div class="info-wrapper <?php echo ( $this->current_tab === 'info' ) ? '' : 'hidden'; ?>">
 					<p><?php echo esc_html__( 'Site Health Info screen displays configuration data and debugging information. Some data in this screen is confidential and sharing critical server data should be done with caution and with security in mind.', 'site-health-manager' ); ?></p>
-					<p><?php echo esc_html__( 'Select what information you want to disable in order to prevent your users from coping it to clipboard when sharing debug data with third parties. For example when sending data to plugin/theme developers to debug issues.', 'site-health-manager' ); ?></p>
+					<p><?php echo esc_html__( 'Select what information you want to disable in order to prevent your users from copying it to the clipboard when sharing debug data with third parties. For example, when sending data to plugin/theme developers to debug issues.', 'site-health-manager' ); ?></p>
 					<?php
 					foreach ( $this->wp_site_health_info as $section => $details ) {
 

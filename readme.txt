@@ -3,26 +3,26 @@ Contributors: ramiy
 Tags: site health, health, security, debug, confidential data, tool, manager, data, tests
 Requires at least: 5.2
 Tested up to: 5.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.6
 
 Site Health Manager allows you to customize critical server data visibility and status tests availability.
 
 == Description ==
 
-Make sure your health score is correct by running only the tests relevant for your server configuration. And take some protective measures to keep your critical server data secure.
+Make sure your Health Score is correct by running only tests the are relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.
 
 = Status Manager =
 
-Site Health Status screen generates a health score based on tests it runs on the server. But some tests may not be relevant for your server setup. This may cause a low health score, unhappy site owners and complains for web hosts.
+Site Health Status screen generates a health score based on tests it runs on the server, but some tests may not be relevant to your server setup. This may cause a low health score, unhappy site owners, and complaints for web hosts.
 
-Select the test you want to disable in order to prevent displaying wrong health score in your Site Health Status screen. For example missing PHP extensions for security reasons or disabled background updates to allow version control.
+Select the test you want to disable in order to prevent displaying the wrong health score in your Site Health Status screen. For example, missing PHP extensions for security reasons or disabled background updates to allow version control.
 
 = Info Manager =
 
 Site Health Info screen displays configuration data and debugging information. Some data in this screen is confidential and sharing critical server data should be done with caution and with security in mind.
 
-Select what information you want to disable in order to prevent your users from coping it to clipboard when sharing debug data with third parties. For example when sending data to plugin/theme developers to debug issues.
+Select what information you want to disable in order to prevent your users from copying it to the clipboard when sharing debug data with third parties. For example, when sending data to plugin/theme developers to debug issues.
 
 = Contribute = 
 
@@ -37,10 +37,10 @@ You can also help by translating the plugin to your language via [translate.word
 * PHP version 5.6 or greater.
 * MySQL version 5.0 or greater.
 
-= Can I add new test to Site Heath Status? ==
-No, you can't add new test. The plugin allows you to disable existing tests that are not relevant for your server configuration.
+= Can I add new tests to Site Health Status? ==
+No, you can't add new tests. The plugin allows you to disable existing tests which are not relevant to your server configuration.
 
-= Can I add new data to Site Heath Info? ==
+= Can I add new data to Site Health Info? ==
 No, you can't add new data. The plugin only lets you manage and organize existing data added by WordPress core, plugins and themes.
 
 == Screenshots ==
@@ -48,9 +48,13 @@ No, you can't add new data. The plugin only lets you manage and organize existin
 1. Site Health Manager - status manager screen.
 1. Site Health Manager - info manager screen.
 1. Site Health Status - perfect score based on server configuration.
-1. Site Health Info - debug data without the data the user disable.
+1. Site Health Info - the information you disabled is not displayed here.
 
 == Changelog ==
+
+= 1.1.1 =
+* Use `menu_page_url()` to retrieve the URL used as the tab link and in form action attribute.
+* Simplify the way the current tab is set.
 
 = 1.1.0 =
 
