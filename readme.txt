@@ -3,14 +3,14 @@ Contributors: ramiy
 Tags: site health, health, security, debug, confidential data, tool, manager, data, tests
 Requires at least: 5.2
 Tested up to: 5.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 5.6
 
-Site Health Manager allows you to customize critical server data visibility and status tests availability.
+Control which status tests and what debug information appear in your Site Health screen.
 
 == Description ==
 
-Make sure your Health Score is correct by running only tests the are relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.
+Make sure your health score is correct by running only the tests relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.
 
 = Status Manager =
 
@@ -51,6 +51,9 @@ No, you can't add new data. The plugin only lets you manage and organize existin
 1. Site Health Info - the information you disabled is not displayed here.
 
 == Changelog ==
+
+= 1.1.2 =
+* Fix visual issues after the release of WordPress 5.2.2 (Source: [WordPress Trac Ticket #46881](https://core.trac.wordpress.org/ticket/46881)).
 
 = 1.1.1 =
 * Use `menu_page_url()` to retrieve the URL used as the tab link and in form action attribute.

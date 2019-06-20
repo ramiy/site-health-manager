@@ -2,8 +2,8 @@
 /*
 Plugin Name: Site Health Manager
 Plugin URI:  https://wordpress.org/plugins/site-health-manager/
-Description: Site Health Manager allows you to customize critical server data visibility and status tests availability.
-Version:     1.1.1
+Description: Control which status tests and what debug information appear in your Site Health screen.
+Version:     1.1.2
 Author:      Rami Yushuvaev
 Author URI:  https://GenerateWP.com/
 Text Domain: site-health-manager
@@ -322,7 +322,7 @@ class Site_Health_Manager {
 	public function admin_footer() {
 
 		?>
-		<style> 
+		<style>
 			.tools_page_site-health-manager #wpcontent { padding-left: 0; }
 			.tools_page_site-health-manager .health-check-body { padding-left: 20px; }
 			.tools_page_site-health-manager .site-health-manager-nav { text-align: center; padding: 10px 0 20px; }
@@ -332,6 +332,10 @@ class Site_Health_Manager {
 			.tools_page_site-health-manager table.info-table td:nth-of-type(1) { width: 20px; }
 			.tools_page_site-health-manager table.info-table td:nth-of-type(2) { width: 30%; }
 			.tools_page_site-health-manager table.info-table td:nth-of-type(3) { width: calc(100% - 30% - 20px); }
+			<?php if ( version_compare( get_bloginfo('version'), '5.2.2', '>=' ) ) : ?>
+			.tools_page_site-health-manager .health-check-tabs-wrapper { grid-template-columns: 1fr 1fr 1fr; }
+			.tools_page_site-health-manager .health-check-tab { display: inline-block; }
+			<?php endif; ?>
 		</style>
 		<?php
 
@@ -435,7 +439,7 @@ class Site_Health_Manager {
 
 			<h2><?php echo esc_html__( 'Site Health Manager', 'site-health-manager' ); ?></h2>
 
-			<p><?php echo esc_html__( 'Make sure your Health Score is correct by running only tests the are relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.', 'site-health-manager' ); ?></p>
+			<p><?php echo esc_html__( 'Make sure your health score is correct by running only the tests relevant to your server configuration. Take some protective measures to keep your critical server data hidden and secure.', 'site-health-manager' ); ?></p>
 
 			<nav class="site-health-manager-nav">
 				<?php foreach ( $site_health_manager_tabs as $tab => $tab_data ) { ?>
